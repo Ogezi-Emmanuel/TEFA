@@ -69,11 +69,18 @@ Thank you for your pre-order! We will reach out shortly with payment details.
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
   ) => {
-    const { name, value, type, checked } = e.target;
-    setFormData((prev) => ({
-      ...prev,
-      [name]: type === "checkbox" ? checked : value,
-    }));
+    const target = e.target;
+    if (target instanceof HTMLInputElement && target.type === "checkbox") {
+      setFormData((prev) => ({
+        ...prev,
+        [target.name]: target.checked,
+      }));
+    } else {
+      setFormData((prev) => ({
+        ...prev,
+        [target.name]: target.value,
+      }));
+    }
   };
 
   const fadeInUp = {
