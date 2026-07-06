@@ -61,7 +61,7 @@ export default function Home() {
 Thank you for your pre-order! We will reach out shortly with payment details.
     `.trim();
 
-    const whatsappUrl = `https://api.whatsapp.com/send?phone=2348120356522&text=${encodeURIComponent(invoiceText)}`;
+    const whatsappUrl = `https://api.whatsapp.com/send?phone=+2349155163471&text=${encodeURIComponent(invoiceText)}`;
     window.open(whatsappUrl, "_blank");
     setIsSubmitting(false);
   };
